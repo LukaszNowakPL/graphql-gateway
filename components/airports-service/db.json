@@ -1,0 +1,50 @@
+{
+  "countries": [
+    { "id": 1, "name": "Poland" },
+    { "id": 2, "name": "Germany" },
+    { "id": 3, "name": "Hungary" },
+    { "id": 4, "name": "Ireland" },
+    { "id": 5, "name": "Spain" },
+    { "id": 6, "name": "Switzerland" },
+    { "id": 7, "name": "USA" },
+    { "id": 8, "name": "France" },
+    { "id": 9, "name": "Brasil" },
+    { "id": 10, "name": "Canada" },
+    { "id": 11, "name": "UK" }
+  ],
+  "airports": [
+    { "id":  1, "country_id": 1, "name": "Poland", "airport":  {"city":  1,"name": "Warszawa Chopin", "iata": "WAW", "pax": 18860000, "services":  [1, 2, 3, 4, 6]}},
+    { "id":  2, "country_id": 1, "name": "Poland", "airport":  {"city":  2,"name": "Wrocław", "iata": "WRO", "pax": 3347000, "services":  [1, 2, 5]}},
+    { "id":  3, "country_id": 1, "name": "Poland", "airport":  {"city":  1,"name": "Warszawa Modlin", "iata": "WMI", "pax": 3081000, "services":  [3, 5]}},
+    { "id":  4, "country_id": 2, "name": "Germany", "airport":  {"city":  3,"name": "Frankfurt", "iata": "FRA", "pax": 18770000, "services":  [1, 2, 3, 4, 5, 6]}},
+    { "id":  5, "country_id": 2, "name": "Germany", "airport":  {"city":  4,"name": "Munich", "iata": "MUC", "pax": 47959000, "services":  [2, 3, 4, 5, 6]}},
+    { "id":  6, "country_id": 11, "name": "England", "airport":  {"city": 5,"name": "London Stansted", "iata": "STN", "pax": 28124000, "services":  [1, 3, 5, 6]}},
+    { "id":  7, "country_id": 11, "name": "England", "airport":  {"city":  5,"name": "London Luton", "iata": "LTN", "pax": 18216000, "services":  [2, 5]}},
+    { "id":  8, "country_id": 11, "name": "England", "airport":  {"city":  5,"name": "London Heathrow", "iata": "LHR", "pax": 22109000, "services":  [1, 2, 3, 4, 6]}},
+    { "id":  9, "country_id": 5, "name": "Spain", "airport":  {"city":  6,"name": "Barcelona El-Prat", "iata": "BCN", "pax": 18874000, "services":  [1, 3, 4, 5]}},
+    { "id":  10, "country_id": 6, "name": "Switzerland", "airport":  {"city":  7,"name": "Zurich", "iata": "ZRH", "pax": 10234000, "services":  [1, 2, 3, 4, 5]}},
+    { "id":  11, "country_id": 5, "name": "Spain", "airport":  {"city":  8,"name": "Mallorca", "iata": "PMI", "pax": 6108000, "services":  [1, 3, 4, 5]}},
+    { "id":  12, "country_id": 5, "name": "Spain", "airport":  {"city":  9,"name": "Alicante", "iata": "ALC", "pax": 15047000, "services":  [1, 3]}},
+    { "id":  13, "country_id": 5, "name": "Spain", "airport":  {"city":  10,"name": "Madrid", "iata": "MAD", "pax": 17112000, "services":  [1, 2, 3, 5]}}
+  ],
+  "cities": [
+    {"id": 1, "name":  "Wrocław"},
+    {"id": 2, "name":  "Warsaw"},
+    {"id": 3, "name":  "Frankfurt"},
+    {"id": 4, "name":  "Munich"},
+    {"id": 5, "name":  "London"},
+    {"id": 6, "name":  "Barcelona"},
+    {"id": 7, "name":  "Zurich"},
+    {"id": 8, "name":  "Palma Mallorca"},
+    {"id": 9, "name":  "Alicante"},
+    {"id": 10, "name":  "Madrid"}
+  ],
+  "services": [
+    { "id":  1, "name":  "Public transportation"},
+    { "id":  2, "name":  "Airport hotel"},
+    { "id":  3, "name":  "Fast track"},
+    { "id":  4, "name":  "Showers"},
+    { "id":  5, "name":  "24/7 operations"},
+    { "id":  6, "name":  "Train connections"}
+  ]
+}

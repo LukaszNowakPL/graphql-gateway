@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Airline {
+    id                      Int @id @default(autoincrement())
+    name                    String
+    countryOfRegistration   Int
+    aircrafts               Aircraft[]
+    routes                  Route[]
+
+    @@index(name)
+    @@unique(name)
+}
+
+model Aircraft {
+    id              Int @id @default(autoincrement())
+    name            String
+    manufacturer    Manufacturer @relation(fields: [manufacturerId], references: [id])
+    manufacturerId  Int
+    capacity        Int
+    airlines        Airline[]
+
+    @@unique(name)
+}
+
+model Manufacturer {
+    id          Int @id @default(autoincrement())
+    name        String
+    country     Int
+    aircrafts   Aircraft[]
+
+    @@unique(name)
+}
+
+model Route {
+    id              Int @id @default(autoincrement())
+    dep             String
+    arr             String
+    flightNumber    String
+    airline         Airline @relation(fields: [airlineId], references: [id])
+    airlineId       Int
+
+    @@index(dep)
+    @@index(arr)
+    @@unique(flightNumber)
+}

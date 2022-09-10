@@ -1,0 +1,34 @@
+{
+    "name": "graphql-gateway-api-gateway",
+    "version": "0.0.1",
+    "main": "src/app.ts",
+    "license": "MIT",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "ts-node-dev --transpile-only --no-notify --exit-child src/index.ts",
+        "generate": "ts-node --transpile-only src/schema.ts",
+        "migrate:deploy": "prisma migrate deploy",
+        "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
+        "build": "npm run generate && tsc",
+        "start": "node dist/src/index.js"
+    },
+    "devDependencies": {
+        "@types/eslint": "^8.4.5",
+        "eslint": "^8.19.0",
+        "eslint-config-prettier": "^8.5.0",
+        "prettier": "^2.6.2",
+        "ts-node-dev": "^2.0.0",
+        "typescript": "^4.6.2"
+    },
+    "dependencies": {
+        "apollo-datasource-rest": "^3.7.0",
+        "apollo-server": "^3.1.1",
+        "graphql": "^16.3.0",
+        "graphql-scalars": "^1.17.0",
+        "nexus": "^1.1.0"
+    },
+    "eslintIgnore": [
+        "/node_modules",
+        "/dist"
+    ]
+}

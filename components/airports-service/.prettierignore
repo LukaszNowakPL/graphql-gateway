@@ -1,0 +1,9 @@
+node_modules
+
+/build
+.env
+.env.example
+
+nexus-typegen.ts
+package-lock.json
+schema.graphql
