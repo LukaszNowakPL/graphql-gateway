@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
-    "dev": "json-server --watch db.json --port 5002"
+    "dev": "json-server --watch db.json --port 6001"
   },
   "devDependencies": {
     "@types/eslint": "^8.4.5",

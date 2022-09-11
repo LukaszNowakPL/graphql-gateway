@@ -13,18 +13,23 @@ type Airport {
 }
 
 type City {
+  airports: [Airport!]!
   id: Int!
   name: String!
 }
 
 type Country {
+  airports: [Airport!]!
+  cities: [City!]!
   id: Int!
   name: String!
 }
 
 type Query {
-  airport(id: Int!): Airport!
+  airport(iata: String, id: Int): Airport!
   airports: [Airport!]!
+  countries: [Country!]!
+  country(id: Int!): Country!
 }
 
 type Service {

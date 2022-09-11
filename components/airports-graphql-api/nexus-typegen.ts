@@ -6,9 +6,6 @@
 import type * as t from "./src/services/airportsService/types"
 import type { Context } from "./src/context"
 import type { AirportsApiAirport } from "./src/graphql/Airport/types"
-import type { AirportsApiCountry } from "./src/graphql/Country/types"
-import type { AirportsApiCity } from "./src/graphql/City/types"
-import type { AirportsApiService } from "./src/graphql/Service/types"
 
 
 
@@ -33,10 +30,19 @@ export interface NexusGenScalars {
 
 export interface NexusGenObjects {
   Airport: AirportsApiAirport;
-  City: AirportsApiCity;
-  Country: AirportsApiCountry;
+  City: { // root type
+    id: number; // Int!
+    name: string; // String!
+  }
+  Country: { // root type
+    id: number; // Int!
+    name: string; // String!
+  }
   Query: {};
-  Service: AirportsApiService;
+  Service: { // root type
+    id: number; // Int!
+    name: string; // String!
+  }
 }
 
 export interface NexusGenInterfaces {
@@ -60,16 +66,21 @@ export interface NexusGenFieldTypes {
     services: NexusGenRootTypes['Service'][]; // [Service!]!
   }
   City: { // field return type
+    airports: NexusGenRootTypes['Airport'][]; // [Airport!]!
     id: number; // Int!
     name: string; // String!
   }
   Country: { // field return type
+    airports: NexusGenRootTypes['Airport'][]; // [Airport!]!
+    cities: NexusGenRootTypes['City'][]; // [City!]!
     id: number; // Int!
     name: string; // String!
   }
   Query: { // field return type
     airport: NexusGenRootTypes['Airport']; // Airport!
     airports: NexusGenRootTypes['Airport'][]; // [Airport!]!
+    countries: NexusGenRootTypes['Country'][]; // [Country!]!
+    country: NexusGenRootTypes['Country']; // Country!
   }
   Service: { // field return type
     id: number; // Int!
@@ -88,16 +99,21 @@ export interface NexusGenFieldTypeNames {
     services: 'Service'
   }
   City: { // field return type name
+    airports: 'Airport'
     id: 'Int'
     name: 'String'
   }
   Country: { // field return type name
+    airports: 'Airport'
+    cities: 'City'
     id: 'Int'
     name: 'String'
   }
   Query: { // field return type name
     airport: 'Airport'
     airports: 'Airport'
+    countries: 'Country'
+    country: 'Country'
   }
   Service: { // field return type name
     id: 'Int'
@@ -108,6 +124,10 @@ export interface NexusGenFieldTypeNames {
 export interface NexusGenArgTypes {
   Query: {
     airport: { // args
+      iata?: string | null; // String
+      id?: number | null; // Int
+    }
+    country: { // args
       id: number; // Int!
     }
   }

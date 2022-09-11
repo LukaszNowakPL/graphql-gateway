@@ -28,16 +28,16 @@
     { "id":  13, "country_id": 5, "name": "Spain", "airport":  {"city":  10,"name": "Madrid", "iata": "MAD", "pax": 17112000, "services":  [1, 2, 3, 5]}}
   ],
   "cities": [
-    {"id": 1, "name":  "Wrocław"},
-    {"id": 2, "name":  "Warsaw"},
-    {"id": 3, "name":  "Frankfurt"},
-    {"id": 4, "name":  "Munich"},
-    {"id": 5, "name":  "London"},
-    {"id": 6, "name":  "Barcelona"},
-    {"id": 7, "name":  "Zurich"},
-    {"id": 8, "name":  "Palma Mallorca"},
-    {"id": 9, "name":  "Alicante"},
-    {"id": 10, "name":  "Madrid"}
+    {"id": 1, "name":  "Warsaw", "country_id":  1},
+    {"id": 2, "name":  "Wrocław", "country_id":  1},
+    {"id": 3, "name":  "Frankfurt", "country_id":  2},
+    {"id": 4, "name":  "Munich", "country_id":  2},
+    {"id": 5, "name":  "London", "country_id":  11},
+    {"id": 6, "name":  "Barcelona", "country_id":  5},
+    {"id": 7, "name":  "Zurich", "country_id":  6},
+    {"id": 8, "name":  "Palma Mallorca", "country_id":  5},
+    {"id": 9, "name":  "Alicante", "country_id":  5},
+    {"id": 10, "name":  "Madrid", "country_id":  5}
   ],
   "services": [
     { "id":  1, "name":  "Public transportation"},

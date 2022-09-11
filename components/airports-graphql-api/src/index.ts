@@ -18,7 +18,7 @@ export const server = new ApolloServer({
     cache: "bounded",
 });
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 6002;
 
 server.listen({port}).then(({url}) => {
     console.log(`🚀  Server ready at ${url}`);

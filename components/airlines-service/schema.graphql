@@ -26,13 +26,10 @@ type Manufacturer {
   name: String!
 }
 
-type Mutation {
-  postAirline(countryOfRegistration: Int!, name: String!): Airline!
-}
-
 type Query {
   airline(id: Int!): Airline!
   airlines(airport: String!): [Airline!]!
+  manufacturers(country: Int!): [Manufacturer!]!
 }
 
 type Route {

@@ -8,6 +8,7 @@ export interface ServiceDto {
 export interface CityDto {
     id: number
     name: string
+    country_id: number
 }
 
 export interface CountryDto {
@@ -33,7 +34,10 @@ interface Airport {
 export interface AirportsService extends RESTDataSource {
     getAllAirports(): Promise<AirportDto[]>
     getAirport(id: number): Promise<AirportDto>
+    getAllCountries(): Promise<CountryDto[]>
     getCountry(id: number): Promise<CountryDto>
+    getAllCities(): Promise<CityDto[]>
     getCity(id: number): Promise<CityDto>
+    getAllServices(): Promise<ServiceDto[]>
     getService(id: number): Promise<ServiceDto>
 }

@@ -1,5 +1,5 @@
 {
-    "name": "graphql-gateway-api-gateway",
+    "name": "graphql-gateway-airports-graphqp-api",
     "version": "0.0.1",
     "main": "src/app.ts",
     "license": "MIT",
@@ -7,7 +7,6 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "dev": "ts-node-dev --transpile-only --no-notify --exit-child src/index.ts",
         "generate": "ts-node --transpile-only src/schema.ts",
-        "migrate:deploy": "prisma migrate deploy",
         "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
         "build": "npm run generate && tsc",
         "start": "node dist/src/index.js"
@@ -21,6 +20,7 @@
         "typescript": "^4.6.2"
     },
     "dependencies": {
+        "@whatwg-node/fetch": "^0.4.2",
         "apollo-datasource-rest": "^3.7.0",
         "apollo-server": "^3.1.1",
         "graphql": "^16.3.0",
