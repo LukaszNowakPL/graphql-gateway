@@ -16,6 +16,21 @@ module.exports = function({airlinesServiceSubschema}) {
                     })
                 }
             }
+        },
+        Airport: {
+            airlines: {
+                selectionSet: `{ iata }`,
+                resolve(airport, args, context, info) {
+                    return delegateToSchema({
+                        schema: airlinesServiceSubschema,
+                        operation: 'query',
+                        fieldName: 'airlines',
+                        args: { airport: airport.iata },
+                        context,
+                        info
+                    })
+                }
+            }
         }
     }
 }

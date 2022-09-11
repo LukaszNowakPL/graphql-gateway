@@ -139,6 +139,12 @@ export interface NexusGenFieldTypeNames {
 }
 
 export interface NexusGenArgTypes {
+  Airline: {
+    routes: { // args
+      arr?: string | null; // String
+      dep?: string | null; // String
+    }
+  }
   Query: {
     airline: { // args
       id: number; // Int!

@@ -16,7 +16,7 @@ type Airline {
   countryOfRegistration: Int!
   id: Int!
   name: String!
-  routes: [Route!]!
+  routes(arr: String, dep: String): [Route!]!
 }
 
 type Manufacturer {

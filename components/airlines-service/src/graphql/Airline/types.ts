@@ -1,4 +1,4 @@
-import {objectType} from 'nexus';
+import {objectType, stringArg} from 'nexus';
 import {RouteModel} from "../Route/model";
 import {AircraftModel} from "../Aircraft/model";
 
@@ -16,8 +16,12 @@ export const airlineType = objectType({
         })
         t.nonNull.list.nonNull.field('routes', {
             type: 'Route',
-            async resolve({id}, _, context) {
-                return await RouteModel.findByAirlineId(id, context)
+            args: {
+                dep: stringArg(),
+                arr: stringArg(),
+            },
+            async resolve({id}, {dep, arr}, context) {
+                return await RouteModel.findByAirlineId(id, {dep, arr}, context)
             }
         })
     },
