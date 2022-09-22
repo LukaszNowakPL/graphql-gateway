@@ -10,8 +10,9 @@ export const RouteModel = {
         }
         return await this.findMany({...wherePart}, context);
     },
-    async findByDepartingAirport(dep: string, context: Context) {
-        return await this.findMany({dep}, context);
+    async findByDepartingAirport({dep, arr}: {dep: string, arr?: string | null}, context: Context) {
+        const where = arr ? {OR: [{dep}, {arr}]} : {dep}
+        return await this.findMany(where, context);
     },
     // DB queries
     async findMany(where: Prisma.RouteWhereInput, context: Context) {

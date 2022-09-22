@@ -1,7 +1,7 @@
 type Query {
   airlines(airport: String!): [Airline!]!
   airline(id: Int!): Airline!
-  routes(dep: String!): [Route!]!
+  routes(dep: String!, arr: String): [Route!]!
   manufacturers(country: Int!): [Manufacturer!]!
   airports: [Airport!]!
   airport(id: Int, iata: String): Airport!
@@ -55,7 +55,7 @@ type Airport {
   country: Country!
   services: [Service!]!
   airlines: [Airline!]!
-  routes: [Route!]!
+  routes(bothDirections: Boolean): [Route!]!
 }
 
 type Country {

@@ -158,6 +158,7 @@ export interface NexusGenArgTypes {
       country: number; // Int!
     }
     routes: { // args
+      arr?: string | null; // String
       dep: string; // String!
     }
   }

@@ -4,6 +4,6 @@ module.exports = /* GraphQL */ `
   }
   extend type Airport {
     airlines: [Airline!]!
-    routes: [Route!]!
+    routes(bothDirections: Boolean): [Route!]!
   }
 `;

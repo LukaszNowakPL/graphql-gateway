@@ -38,7 +38,10 @@ module.exports = function({ airlinesServiceSubschema }) {
             schema: airlinesServiceSubschema,
             operation: "query",
             fieldName: "routes",
-            args: { dep: airport.iata },
+            args: {
+              dep: airport.iata,
+              arr: args.bothDirections && airport.iata
+            },
             context,
             info
           });

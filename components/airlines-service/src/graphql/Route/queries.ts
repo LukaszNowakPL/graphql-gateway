@@ -9,9 +9,10 @@ export const routeQuery = extendType({
             type: 'Route',
             args: {
                 dep: nonNull(stringArg()),
+                arr: stringArg(),
             },
-            async resolve(_, {dep}, context) {
-                return await RouteModel.findByDepartingAirport(dep, context);
+            async resolve(_, {dep, arr}, context) {
+                return await RouteModel.findByDepartingAirport({dep, arr}, context);
             },
         });
     },
