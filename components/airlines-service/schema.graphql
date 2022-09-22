@@ -30,6 +30,7 @@ type Query {
   airline(id: Int!): Airline!
   airlines(airport: String!): [Airline!]!
   manufacturers(country: Int!): [Manufacturer!]!
+  routes(dep: String!): [Route!]!
 }
 
 type Route {

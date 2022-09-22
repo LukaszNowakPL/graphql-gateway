@@ -10,7 +10,8 @@
     "start-all": "concurrently \"npm run start-airlines-service\" \"npm run start-airports-service\" \"npm run start-airports-graphql-api\" \"npm run start-api-gateway\"",
     "generate-airlines-service": "npm --prefix ./components/airlines-service run generate",
     "generate-airports-graphql-api": "npm --prefix ./components/airports-graphql-api run generate",
-    "generate": "concurrently \"npm run generate-airlines-service\" \"npm run generate-airports-graphql-api\""
+    "generate-api-gateway": "npm --prefix ./components/api-gateway run generate",
+    "generate": "concurrently \"npm run generate-airlines-service\" \"npm run generate-airports-graphql-api\" & npm run generate-api-gateway"
   },
   "dependencies": {
     "concurrently": "^5.3.0"

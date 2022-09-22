@@ -1,0 +1,78 @@
+type Query {
+  airlines(airport: String!): [Airline!]!
+  airline(id: Int!): Airline!
+  routes(dep: String!): [Route!]!
+  manufacturers(country: Int!): [Manufacturer!]!
+  airports: [Airport!]!
+  airport(id: Int, iata: String): Airport!
+  countries: [Country!]!
+  country(id: Int!): Country!
+}
+
+type Airline {
+  id: Int!
+  name: String!
+  countryOfRegistration: Int!
+  aircrafts: [Aircraft!]!
+  routes(dep: String, arr: String): [Route!]!
+  countryInfo: Country!
+}
+
+type Route {
+  id: Int!
+  dep: String!
+  arr: String!
+  flightNumber: String!
+  airlineId: Int!
+  airline: Airline!
+  depAirport: Airport!
+  arrAirport: Airport!
+}
+
+type Manufacturer {
+  id: Int!
+  name: String!
+  country: Int!
+  aircrafts: [Aircraft!]!
+  countryDetails: Country!
+}
+
+type Aircraft {
+  id: Int!
+  name: String!
+  manufacturerId: Int!
+  manufacturer: Manufacturer!
+  capacity: Int!
+  airlines: [Airline!]!
+}
+
+type Airport {
+  id: Int!
+  name: String!
+  iata: String!
+  city: City!
+  paxAmount: Int
+  country: Country!
+  services: [Service!]!
+  airlines: [Airline!]!
+  routes: [Route!]!
+}
+
+type Country {
+  id: Int!
+  name: String!
+  cities: [City!]!
+  airports: [Airport!]!
+  manufacturers: [Manufacturer!]!
+}
+
+type City {
+  id: Int!
+  name: String!
+  airports: [Airport!]!
+}
+
+type Service {
+  id: Int!
+  name: String!
+}

@@ -90,6 +90,7 @@ export interface NexusGenFieldTypes {
     airline: NexusGenRootTypes['Airline']; // Airline!
     airlines: NexusGenRootTypes['Airline'][]; // [Airline!]!
     manufacturers: NexusGenRootTypes['Manufacturer'][]; // [Manufacturer!]!
+    routes: NexusGenRootTypes['Route'][]; // [Route!]!
   }
   Route: { // field return type
     airline: NexusGenRootTypes['Airline']; // Airline!
@@ -127,6 +128,7 @@ export interface NexusGenFieldTypeNames {
     airline: 'Airline'
     airlines: 'Airline'
     manufacturers: 'Manufacturer'
+    routes: 'Route'
   }
   Route: { // field return type name
     airline: 'Airline'
@@ -154,6 +156,9 @@ export interface NexusGenArgTypes {
     }
     manufacturers: { // args
       country: number; // Int!
+    }
+    routes: { // args
+      dep: string; // String!
     }
   }
 }

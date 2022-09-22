@@ -4,17 +4,20 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.ts",
+    "generate": "ts-node --transpile-only generateSchema.ts"
   },
   "dependencies": {
     "@graphql-tools/delegate": "^9.0.6",
     "@graphql-tools/stitch": "^7.0.4",
     "@graphql-tools/wrap": "^7.0.1",
+    "cors": "^2.8.5",
     "cross-fetch": "^3.0.6",
     "express": "^4.17.1",
     "express-graphql": "^0.12.0",
     "graphql": "^15.4.0",
     "nodemon": "^2.0.6",
+    "ts-node": "^10.9.1",
     "wait-on": "^5.2.1"
   }
 }
