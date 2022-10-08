@@ -5,6 +5,7 @@ import { AirportPage } from "../../pages/airport";
 import { AirportInfoPage } from "../../pages/airportInfo";
 import { AirportRoutesPage } from "../../pages/airportRoutes";
 import { AirportAirlinesPage } from "../../pages/airportAirlines";
+import { AddAirlinePage } from "../../pages/addAirline";
 
 export const MainRouter: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ export const MainRouter: React.FC = () => {
         <Route path="routes" element={<AirportRoutesPage />} />
         <Route path="airlines" element={<AirportAirlinesPage />} />
       </Route>
+      <Route path="add-airline" element={<AddAirlinePage />} />
       <Route path="" element={<h2>Welcome to Graphql gateway frontend</h2>} />
     </Routes>
   );

@@ -26,7 +26,12 @@ type Manufacturer {
   name: String!
 }
 
+type Mutation {
+  addAirline(aircrafts: [Int!]!, countryOfRegistration: Int!, name: String!): Airline!
+}
+
 type Query {
+  aircrafts: [Aircraft!]!
   airline(id: Int!): Airline!
   airlines(airport: String!): [Airline!]!
   manufacturers(country: Int!): [Manufacturer!]!

@@ -44,6 +44,7 @@ export interface NexusGenObjects {
     id: number; // Int!
     name: string; // String!
   }
+  Mutation: {};
   Query: {};
   Route: { // root type
     airlineId: number; // Int!
@@ -86,7 +87,11 @@ export interface NexusGenFieldTypes {
     id: number; // Int!
     name: string; // String!
   }
+  Mutation: { // field return type
+    addAirline: NexusGenRootTypes['Airline']; // Airline!
+  }
   Query: { // field return type
+    aircrafts: NexusGenRootTypes['Aircraft'][]; // [Aircraft!]!
     airline: NexusGenRootTypes['Airline']; // Airline!
     airlines: NexusGenRootTypes['Airline'][]; // [Airline!]!
     manufacturers: NexusGenRootTypes['Manufacturer'][]; // [Manufacturer!]!
@@ -124,7 +129,11 @@ export interface NexusGenFieldTypeNames {
     id: 'Int'
     name: 'String'
   }
+  Mutation: { // field return type name
+    addAirline: 'Airline'
+  }
   Query: { // field return type name
+    aircrafts: 'Aircraft'
     airline: 'Airline'
     airlines: 'Airline'
     manufacturers: 'Manufacturer'
@@ -145,6 +154,13 @@ export interface NexusGenArgTypes {
     routes: { // args
       arr?: string | null; // String
       dep?: string | null; // String
+    }
+  }
+  Mutation: {
+    addAirline: { // args
+      aircrafts: number[]; // [Int!]!
+      countryOfRegistration: number; // Int!
+      name: string; // String!
     }
   }
   Query: {

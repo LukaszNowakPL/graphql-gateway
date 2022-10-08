@@ -84,8 +84,21 @@ export type Manufacturer = {
   name: Scalars['String'];
 };
 
+export type Mutation = {
+  __typename?: 'Mutation';
+  addAirline: Airline;
+};
+
+
+export type MutationAddAirlineArgs = {
+  aircrafts: Array<Scalars['Int']>;
+  countryOfRegistration: Scalars['Int'];
+  name: Scalars['String'];
+};
+
 export type Query = {
   __typename?: 'Query';
+  aircrafts: Array<Aircraft>;
   airline: Airline;
   airlines: Array<Airline>;
   airport: Airport;
@@ -146,6 +159,25 @@ export type Service = {
   name: Scalars['String'];
 };
 
+export type AddAirlineMutationVariables = Exact<{
+  name: Scalars['String'];
+  countryOfRegistration: Scalars['Int'];
+  aircrafts: Array<Scalars['Int']> | Scalars['Int'];
+}>;
+
+
+export type AddAirlineMutation = { __typename?: 'Mutation', addAirline: { __typename?: 'Airline', id: number } };
+
+export type GetCountriesListQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetCountriesListQuery = { __typename?: 'Query', countries: Array<{ __typename?: 'Country', id: number, name: string }> };
+
+export type GetAircraftsListQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAircraftsListQuery = { __typename?: 'Query', aircrafts: Array<{ __typename?: 'Aircraft', id: number, name: string, manufacturer: { __typename?: 'Manufacturer', name: string } }> };
+
 export type GetAirportQueryVariables = Exact<{
   id: Scalars['Int'];
 }>;
@@ -180,6 +212,118 @@ export type GetAirportsQueryVariables = Exact<{ [key: string]: never; }>;
 export type GetAirportsQuery = { __typename?: 'Query', airports: Array<{ __typename?: 'Airport', id: number, name: string, iata: string, country: { __typename?: 'Country', id: number, name: string }, airlines: Array<{ __typename?: 'Airline', name: string }>, routes: Array<{ __typename?: 'Route', arr: string }> }> };
 
 
+export const AddAirlineDocument = gql`
+    mutation addAirline($name: String!, $countryOfRegistration: Int!, $aircrafts: [Int!]!) {
+  addAirline(
+    name: $name
+    countryOfRegistration: $countryOfRegistration
+    aircrafts: $aircrafts
+  ) {
+    id
+  }
+}
+    `;
+export type AddAirlineMutationFn = Apollo.MutationFunction<AddAirlineMutation, AddAirlineMutationVariables>;
+
+/**
+ * __useAddAirlineMutation__
+ *
+ * To run a mutation, you first call `useAddAirlineMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useAddAirlineMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [addAirlineMutation, { data, loading, error }] = useAddAirlineMutation({
+ *   variables: {
+ *      name: // value for 'name'
+ *      countryOfRegistration: // value for 'countryOfRegistration'
+ *      aircrafts: // value for 'aircrafts'
+ *   },
+ * });
+ */
+export function useAddAirlineMutation(baseOptions?: Apollo.MutationHookOptions<AddAirlineMutation, AddAirlineMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<AddAirlineMutation, AddAirlineMutationVariables>(AddAirlineDocument, options);
+      }
+export type AddAirlineMutationHookResult = ReturnType<typeof useAddAirlineMutation>;
+export type AddAirlineMutationResult = Apollo.MutationResult<AddAirlineMutation>;
+export type AddAirlineMutationOptions = Apollo.BaseMutationOptions<AddAirlineMutation, AddAirlineMutationVariables>;
+export const GetCountriesListDocument = gql`
+    query getCountriesList {
+  countries {
+    id
+    name
+  }
+}
+    `;
+
+/**
+ * __useGetCountriesListQuery__
+ *
+ * To run a query within a React component, call `useGetCountriesListQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetCountriesListQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetCountriesListQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetCountriesListQuery(baseOptions?: Apollo.QueryHookOptions<GetCountriesListQuery, GetCountriesListQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetCountriesListQuery, GetCountriesListQueryVariables>(GetCountriesListDocument, options);
+      }
+export function useGetCountriesListLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetCountriesListQuery, GetCountriesListQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetCountriesListQuery, GetCountriesListQueryVariables>(GetCountriesListDocument, options);
+        }
+export type GetCountriesListQueryHookResult = ReturnType<typeof useGetCountriesListQuery>;
+export type GetCountriesListLazyQueryHookResult = ReturnType<typeof useGetCountriesListLazyQuery>;
+export type GetCountriesListQueryResult = Apollo.QueryResult<GetCountriesListQuery, GetCountriesListQueryVariables>;
+export const GetAircraftsListDocument = gql`
+    query getAircraftsList {
+  aircrafts {
+    id
+    name
+    manufacturer {
+      name
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetAircraftsListQuery__
+ *
+ * To run a query within a React component, call `useGetAircraftsListQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAircraftsListQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAircraftsListQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetAircraftsListQuery(baseOptions?: Apollo.QueryHookOptions<GetAircraftsListQuery, GetAircraftsListQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetAircraftsListQuery, GetAircraftsListQueryVariables>(GetAircraftsListDocument, options);
+      }
+export function useGetAircraftsListLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAircraftsListQuery, GetAircraftsListQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetAircraftsListQuery, GetAircraftsListQueryVariables>(GetAircraftsListDocument, options);
+        }
+export type GetAircraftsListQueryHookResult = ReturnType<typeof useGetAircraftsListQuery>;
+export type GetAircraftsListLazyQueryHookResult = ReturnType<typeof useGetAircraftsListLazyQuery>;
+export type GetAircraftsListQueryResult = Apollo.QueryResult<GetAircraftsListQuery, GetAircraftsListQueryVariables>;
 export const GetAirportDocument = gql`
     query getAirport($id: Int!) {
   airport(id: $id) {

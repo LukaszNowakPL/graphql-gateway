@@ -3,10 +3,15 @@ type Query {
   airline(id: Int!): Airline!
   routes(dep: String!, arr: String): [Route!]!
   manufacturers(country: Int!): [Manufacturer!]!
+  aircrafts: [Aircraft!]!
   airports: [Airport!]!
   airport(id: Int, iata: String): Airport!
   countries: [Country!]!
   country(id: Int!): Country!
+}
+
+type Mutation {
+  addAirline(name: String!, countryOfRegistration: Int!, aircrafts: [Int!]!): Airline!
 }
 
 type Airline {

@@ -12,6 +12,9 @@ export const Menu: React.FC = () => {
           <HeaderNavItem>
             <Link to="/airports">Airports</Link>
           </HeaderNavItem>
+          <HeaderNavItem>
+            <Link to="/add-airline">Add airline</Link>
+          </HeaderNavItem>
         </HeaderNav>
       </>
     </Header>

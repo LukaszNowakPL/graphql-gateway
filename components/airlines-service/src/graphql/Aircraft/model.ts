@@ -8,6 +8,9 @@ export const AircraftModel = {
     async findByManufacturerId(manufacturerId: number, context: Context) {
         return await this.findMany({manufacturerId}, context);
     },
+    async findAll(context: Context) {
+        return await this.findMany({}, context);
+    },
     // DB queries
     async findMany(where: Prisma.AircraftWhereInput, context: Context) {
         return await context.prisma.aircraft.findMany({where});
