@@ -1,12 +1,12 @@
 # GraphQL Gateway (Api gateway Service)
 
 This components is a backend service responsible for merging GraphQL Apis into one. It's architecture is a scratch of two different concepts:
-- Api Gateway as a single entry point for accessing data from different backend services
-- Backend for frontend pattern that gathers and exposes all data consumed by dedicated frontend application
+- Api Gateway - as a single entry point for accessing data from different backend services
+- Backend for frontend pattern - for gathering and exposing all data consumed by dedicated frontend application
 
 ## Architecture and tech-stack scheme
 
-![Api Gateway Service Architecture schema](/../../readme-img/api-gateway-service-architectural-schema.png)
+![Api Gateway Service Architecture schema](/readme-img/api-gateway-service-architectural-schema.png)
 
 Components uses several tools of `@graphql-tools` environment for manipulation over existing GraphQL schemas exposed by several services in order to create and manage final schema.
 

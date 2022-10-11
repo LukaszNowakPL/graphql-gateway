@@ -6,7 +6,7 @@ This components is a backend service responsible for translating and remapping R
 
 Component's stack and overall architecture is very similar to one applied to `Airlines Service` of the project. The main difference is source of data, as the component uses Rest Api exposed by `Airports Service` instead od `Prisma ORM`.
 
-Component uses `Nexus` to create GraphQL schema in TypeScript. It is consumed on `/prisma/**/(queries|mutations|types).ts` files. It serves type-safe connections with `Prisma ORM` as well as is a base for GraphQL schema creation.
+Component uses `Nexus` to create GraphQL schema in TypeScript. It is consumed on `/prisma/**/(queries|mutations|types).ts` files. It serves type-safe connections with Dtos returned from Rest api (however Dto definitions have to be created manually) as well as is a base for GraphQL schema creation.
 
 Component uses `Apollo Server` for serving GraphQL endpoint and handling overall server functionalities.
 
@@ -14,13 +14,15 @@ Component uses `Apollo Server` for serving GraphQL endpoint and handling overall
 
 Items used for GraphQL schema creation are available on `/src/graphql` folder.
 
-They are encapsulated by domain parts that are mostly aligned with Rest Api endpoints. Once domain exposes direct query, there are `queries.ts` file created with respective Nexus type extensions. Mutations are not available as `Airport Service` does not expose POST/PUT endpoints.
+They are encapsulated by domain parts that are mostly aligned with Rest Api endpoints. Once domain exposes direct query, there are `queries.ts` file created with respective Nexus type extensions. Mutations are not available as `Airports Service` does not expose POST/PUT endpoints.
 
 In order to domain-parts encapsulation (helps with managing the scale), those functionalities should make calls to each domain's model. They should call descriptive, source-independent methods like `findByCountryId` method of `AirportModel`.
 
 Those methods then are forming arguments and further call context-dependent methods of same model. Those methods are strictly related with an endpoint. For example `findOne` method of `AirportModel` will then call `getAirport` method of `airportsApi` with unchanged `id` argument. Once all data has been fetched from Api, it then may be filtered or reshaped.
 
-Data returned by queries are of defined shape. Shape definitions for each domain-parts are defined in `/src/graphql/**/types.ts` file. They contain resolver definitions for each field. Once field is of other domain, it's resolver should call method of respective domain-based model. For example in order to get values of  `city` field of `Airport` model, the resolver should make a call to `findById` method exposed by `CityModel`.
+Data returned by queries are of defined shape (type). Type definitions for each domain-parts are defined in `/src/graphql/**/types.ts` file. They contain resolver definitions for each field. Once field is of other type, it's resolver should call method of respective domain-based model.
+
+For example in order to get values of `city` field of `Airport` model, the resolver should make a call to `findById` method exposed by `CityModel`.
 
 ## Available scripts
 

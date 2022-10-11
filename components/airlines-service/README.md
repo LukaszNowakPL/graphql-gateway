@@ -4,7 +4,7 @@ This components is a backend service responsible for airline part of project's d
 
 ## Architecture and tech-stack scheme
 
-![Architecture schema](/../../readme-img/architectural-schema.png)
+![Architecture schema](/readme-img/airline-service-architectural-schema.png)
 
 Component consumes `SQLite` database for storing the data. It's simple in-process database that stores data in `/prisma/devDB/dev.db` file. The file is delivered within the component so the database is prefilled with some example data.
 
@@ -24,7 +24,9 @@ In order to domain-parts encapsulation (helps with managing the scale), those fu
 
 Those methods then are forming arguments and further call context-dependent methods of same model. Those methods are strictly related with db handler. For example `findMany` method will then call `findMany` method of `prisma` db handler with unchanged `where` argument.
 
-Data returned by queries or mutations are of defined shape. Shape definitions for each domain-parts are defined in `/src/graphql/**/types.ts` file. They contain resolver definitions for each field. Once field is of other domain, it's resolver should call method of respective domain-based model. For example in order to get values of  `airlines` field of `Aircraft` model, the resolver should make a call to `findByAircraftId` method exposed by `AirlineModel`.
+Data returned by queries or mutations are of defined shape (type). Type definitions for each domain-parts are defined in `/src/graphql/**/types.ts` file. They contain resolver definitions for each field. Once field is of other domain type, it's resolver should call method of respective domain-based model.
+
+For example in order to get values of  `airlines` field of `Aircraft` type, the resolver should make a call to `findByAircraftId` method exposed by `AirlineModel`.
 
 ## Available scripts
 
