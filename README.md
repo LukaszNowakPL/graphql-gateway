@@ -42,9 +42,7 @@ Fires up installation process for all components available.
 
 ### `npm run prepare-all`
 
-Fires up preparation process for all components. Currently it is for deploying database consumed by `Airlines Service`.
-
-Please note, as the project is shipped with workable snapshot of a database, in most cases you probable will not use this command at all.
+Fires up preparation process for all components. Currentlly it is generating Prisma client for `Airlines Service`.
 
 ### `npm run all-components`
 
