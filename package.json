@@ -15,10 +15,11 @@
     "generate-frontend": "npm --prefix ./components/frontend run generate",
     "generate": "concurrently \"npm run generate-airlines-service\" \"npm run generate-airports-graphql-api\" & npm run generate-api-gateway & npm run generate-frontend",
     "install-airlines-service": "npm --prefix ./components/airlines-service install",
+    "install-airports-service": "npm --prefix ./components/airports-service install",
     "install-airports-graphql-api": "npm --prefix ./components/airports-graphql-api install",
     "install-api-gateway": "npm --prefix ./components/api-gateway install",
     "install-frontend": "npm --prefix ./components/frontend install",
-    "install-all": "concurrently \"npm run install-airlines-service\" \"npm run install-airports-graphql-api\" & npm run install-api-gateway & npm run install-frontend",
+    "install-all": "concurrently \"npm run install-airlines-service\" \"npm run install-airports-service\" \"npm run install-airports-graphql-api\" & npm run install-api-gateway & npm run install-frontend",
     "prepare-airlines-service": "cd ./components/airlines-service & npx prisma generate & npx prisma migrate deploy",
     "prepare-all": "concurrently \"npm run prepare-airlines-service\""
   },
