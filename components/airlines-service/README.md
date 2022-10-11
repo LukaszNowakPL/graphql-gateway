@@ -34,9 +34,9 @@ It's recommended to use project-wise commands described on main Readme file as t
 
 Installs all dependencies.
 
-### `npm run migrate`
+### `npx prisma generate`
 
-Implements migrations as well as seeding of database. This command is necessary only on an empty database. However, the component is delivered with already prefilled db (stored on `/prisma/devDb.dev.db` file), so for presentational purposes such command most probable will not be necessary.
+Generates Prisma client. This command is necessary to run only for starting up the project or when `node_modules` folder is being deleted. This is because Prisma client is being created directly on the folder.
 
 ### `npm run dev`
 
@@ -45,6 +45,12 @@ Starts server in development mode. It exposes GraphQL endpoint available on http
 Using this url in the browser will fire up `Apollo Studio` for manual issuing GraphQL queries. The tool is provided by `Apollo`.
 
 It is recommended to restart the server after any changes made to nexus types definition, queries or mutations. This is for regeneration of Nexus types, relinting and typecheck of the project using new type definitions.
+
+### `npx prisma studio`
+
+Starts Prisma Studio. This tool is very helpful for previewing and basic manipulations over data stored into database.
+
+Prisma Studio should fire up automatically and be available on http://localhost:5555/
 
 ### `npm run generate`
 

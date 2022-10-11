@@ -42,17 +42,18 @@ Fires up installation process for all components available.
 
 ### `npm run prepare-all`
 
-Fires up preparation process for all components. Currentlly it is generating Prisma client for `Airlines Service`.
+Fires up preparation process for all components. Currently it is generating Prisma client for `Airlines Service`.
 
 ### `npm run all-components`
 
-Fires up all backend components as well as frontend application. Components are available by urls:
+Fires up all backend components, frontend application and Prisma Studio for direct manipulations over `Airlines Service` database. Components are available by urls:
 
 - http://localhost:3000 - Frontend application
 - http://localhost:4000/graphql/ - GraphQL endpoint exposed by `Api Gateway service`. Using this url in the browser will fire up `GraphiQL` tool for manual issuing GraphQL queries. The tool is provided by `express-graphql`.
 - http://localhost:5001/ - GraphQL endpoint exposed by `Airlines Service`. Using this url in the browser will fire up `Apollo Studio` for manual issuing GraphQL queries. The tool is provided by `Apollo`.
 - http://localhost:6002/ - GraphQL endpoint exposed by `Airports GraphQL Api Service`. Using this url in the browser will fire up `Apollo Studio` for manual issuing GraphQL queries. The tool is provided by `Apollo`.
 - http://localhost:6001/ - Rest endpoint exposed by `Airports Service`. Using this url in the browser will fire up dashboard for exploring endpoints served by `JSON Server`.
+- http://localhost:5555 - Prisma Studio for direct manipulations over `Airlines Service` database. The tool is provided by `Prisma`.
 
 ### `npm run generate`
 

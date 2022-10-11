@@ -4,11 +4,12 @@
   "license": "MIT",
   "scripts": {
     "start-airlines-service": "npm --prefix ./components/airlines-service run dev",
+    "start-prisma-studio": "cd ./components/airlines-service & npx prisma studio",
     "start-airports-service": "npm --prefix ./components/airports-service run dev",
     "start-airports-graphql-api": "npm --prefix ./components/airports-graphql-api run dev",
     "start-api-gateway": "npm --prefix ./components/api-gateway run dev",
     "start-frontend": "npm --prefix ./components/frontend run dev",
-    "all-components": "concurrently \"npm run start-airlines-service\" \"npm run start-airports-service\" \"npm run start-airports-graphql-api\" \"npm run start-api-gateway\" \"npm run start-frontend\"",
+    "all-components": "concurrently \"npm run start-airlines-service\" \"npm run start-prisma-studio\" \"npm run start-airports-service\" \"npm run start-airports-graphql-api\" \"npm run start-api-gateway\" \"npm run start-frontend\"",
     "generate-airlines-service": "npm --prefix ./components/airlines-service run generate",
     "generate-airports-graphql-api": "npm --prefix ./components/airports-graphql-api run generate",
     "generate-api-gateway": "npm --prefix ./components/api-gateway run generate",
@@ -20,7 +21,7 @@
     "install-api-gateway": "npm --prefix ./components/api-gateway install",
     "install-frontend": "npm --prefix ./components/frontend install",
     "install-all": "concurrently \"npm run install-airlines-service\" \"npm run install-airports-service\" \"npm run install-airports-graphql-api\" & npm run install-api-gateway & npm run install-frontend",
-    "prepare-airlines-service": "cd ./components/airlines-service & npx prisma generate & npx prisma migrate deploy",
+    "prepare-airlines-service": "cd ./components/airlines-service & npx prisma generate",
     "prepare-all": "concurrently \"npm run prepare-airlines-service\""
   },
   "dependencies": {
