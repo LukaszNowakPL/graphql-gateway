@@ -18,7 +18,8 @@
     "install-airports-graphql-api": "npm --prefix ./components/airports-graphql-api run install",
     "install-api-gateway": "npm --prefix ./components/api-gateway run install",
     "install-frontend": "npm --prefix ./components/frontend run install",
-    "install-all": "concurrently \"npm run install-airlines-service\" \"npm run install-airports-graphql-api\" & npm run install-api-gateway & npm run install-frontend"
+    "install-all": "concurrently \"npm run install-airlines-service\" \"npm run install-airports-graphql-api\" & npm run install-api-gateway & npm run install-frontend",
+    "prepare-all": "npm --prefix ./components/airlines-service run migrate:deploy"
   },
   "dependencies": {
     "concurrently": "^5.3.0"
