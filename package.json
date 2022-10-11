@@ -19,7 +19,7 @@
     "install-api-gateway": "npm --prefix ./components/api-gateway install",
     "install-frontend": "npm --prefix ./components/frontend install",
     "install-all": "concurrently \"npm run install-airlines-service\" \"npm run install-airports-graphql-api\" & npm run install-api-gateway & npm run install-frontend",
-    "prepare-airlines-service": "cd ./components/airlines-service & npx prisma generate",
+    "prepare-airlines-service": "cd ./components/airlines-service & npx prisma generate & npx prisma migrate deploy",
     "prepare-all": "concurrently \"npm run prepare-airlines-service\""
   },
   "dependencies": {
