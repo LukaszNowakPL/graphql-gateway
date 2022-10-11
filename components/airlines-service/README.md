@@ -4,7 +4,7 @@ This components is a backend service responsible for airline part of project's d
 
 ## Architecture and tech-stack scheme
 
-![Architecture schema](/readme-img/airline-service-architectural-schema.png)
+![Architecture schema](./readme-img/airline-service-architectural-schema.png)
 
 Component consumes `SQLite` database for storing the data. It's simple in-process database that stores data in `/prisma/devDB/dev.db` file. The file is delivered within the component so the database is prefilled with some example data.
 

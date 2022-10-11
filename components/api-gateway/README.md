@@ -6,7 +6,7 @@ This components is a backend service responsible for merging GraphQL Apis into o
 
 ## Architecture and tech-stack scheme
 
-![Api Gateway Service Architecture schema](/readme-img/api-gateway-service-architectural-schema.png)
+![Api Gateway Service Architecture schema](./readme-img/api-gateway-service-architectural-schema.png)
 
 Components uses several tools of `@graphql-tools` environment for manipulation over existing GraphQL schemas exposed by several services in order to create and manage final schema.
 
